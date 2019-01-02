@@ -4,17 +4,23 @@
   "description": "\"It is second day of node\"",
   "main": "server.js",
   "scripts": {
+    "client-instal": "cd client && npm i",
     "start": "node server.js",
+    "start-watch": "nodemon server.js",
+    "client": "npm start --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "dev": "concurrently \"npm start-watch\" \"cd  client  && npm start\""
   },
   "engines": {
-    "node": "8.10.0"
+    "node": "11.4.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
+    "concurrently": "^4.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongodb": "^3.1.10",

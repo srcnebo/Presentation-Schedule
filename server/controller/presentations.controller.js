@@ -40,12 +40,12 @@ function addPresentation(req, res) {
       console.log('Data is saved');
     })
     .catch(err => console.log('Error', err));
-  res.send('A new presentation has been added');
+  res.status(201).json(newPresentation);
 }
 
 function editPresentation(req, res) {
   const _id = req.params.id;
-  Presentation.findOne({ _id }, (err, presentation) => {
+  Presentation.findById({ _id }, (err, presentation) => {
     (presentation.name = req.body.name), (presentation.age = req.body.age);
     presentation.save(err => {
       if (err) {

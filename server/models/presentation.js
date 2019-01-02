@@ -15,7 +15,7 @@ const PresentationSchema = new Schema({
     type: String
   },
   date: {
-    type: Date
+    type: String
   },
   links: {
     type: String

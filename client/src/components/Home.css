@@ -1,0 +1,19 @@
+.jumbotron {
+  background: black;
+  border-radius: 0;
+}
+.jumbotron h1 {
+  color: aliceblue;
+}
+
+.home-button {
+  background: #000;
+  border: solid 2px #fdb515;
+}
+
+.home-button:hover {
+  background: #fdb515;
+
+  border: solid 2px #fdb515;
+  color: #000;
+}

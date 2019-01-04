@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 class Presentation extends Component {
   handleRemove = id => {
     this.props.deletePresentation(id);
-    this.props.history.push('/presentations')
+    this.props.history.push('/presentations');
+  };
+
+  handleEdit = id => {
+    this.props.history.push(`/presentations/edit/${id}`);
   };
 
   renderPresentation = () => {
@@ -12,7 +16,6 @@ class Presentation extends Component {
     );
 
     if (presentation) {
-      console.log(presentation.topic);
       const {
         _id,
         topic,
@@ -24,32 +27,49 @@ class Presentation extends Component {
         keywords
       } = presentation;
       return (
-        <div className="container">
-          <p>Here you will find presentation information</p>
+        <div className="display-container">
           <h2>{topic}</h2>
           <div className="display-people">
-            <h5> Speaker: {presenter}</h5>
-            <h5> Evaluator: {evaluator}</h5>
+            <h5>
+              <span className="display-label">presented by: </span>
+              {presenter}
+            </h5>
+            <h5>
+              <span className="display-label">review by: </span> {evaluator}
+            </h5>
           </div>
           <div className="display-metadata">
-            <h5> Presentation date:{date}</h5>
-            <h5> Links:{links}</h5>
-          </div>
-          <div>
-            <h5>Keywords:</h5>
-            <span class="badge badge-primary">{keywords}</span>
+            <h5>
+              <span className="display-label">Date:</span> {date}
+            </h5>
+            <h5>
+              <span className="display-label">Links: </span>
+              <a href={links}>{links}</a>
+            </h5>
           </div>
 
-          <h5> Summary:{summary}</h5>
-
           <div>
-            <button type="button" class="btn btn-outline-secondary monitor-btn">
+            <span className="display-label"> Summary:</span>
+            <p>{summary}</p>
+          </div>
+          <div className="display-keywords">
+            {keywords.split(',').map(keyword => (
+              <span className="badge badge-secondary">{keyword}</span>
+            ))}
+          </div>
+
+          <div className="presentation-buttons">
+            <button
+              type="button"
+              className="btn btn-outline-secondary  monitor-btn"
+              onClick={() => this.handleEdit(_id)}
+            >
               Edit
             </button>
 
             <button
               type="button"
-              class="btn btn-outline-danger"
+              className="btn btn-outline-danger  monitor-btn-red"
               onClick={() => this.handleRemove(_id)}
             >
               Delete

@@ -44,11 +44,18 @@ class App extends Component {
     });
   };
   editPresentation = (id, data) => {
-    axios.put(`/presentations/${id}`, data).then(response => {
-      console.log(response.data);
-    });
+    axios
+      .put(`/presentations/edit/${id}`, data)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(err => console.log(err));
   };
-
+  updating = (id, updatedPresentation) => {
+    const presentations = [...this.state.presentations];
+    presentations[id] = updatedPresentation;
+    this.setState({ presentations });
+  };
   render() {
     return (
       <div>
@@ -57,6 +64,8 @@ class App extends Component {
           addPresentations={this.addPresentations}
           presentations={this.state.presentations}
           deletePresentation={this.deletePresentation}
+          updating={this.updating}
+          editPresentation={this.editPresentation}
         />
       </div>
     );

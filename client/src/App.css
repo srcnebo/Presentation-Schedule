@@ -1,23 +1,47 @@
-.jumbotron-link {
-  text-decoration: none;
-  color: aliceblue;
+h1,
+h2,
+h3 {
+  font-family: 'Alegreya', serif;
+  font-weight: 700;
+  line-height: 46px;
+  font-size: 46px;
+  margin: 0 0 43px 0;
+  color: #000000c5;
+  text-align: center;
 }
 
-.jumbotron-link:hover {
-  text-decoration: none;
-  color: aliceblue;
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 0 0 15px 0;
+}
+
+h1,
+h2 {
+  margin-top: 20px;
+  font-size: 36px;
 }
 
 .link-items {
   text-decoration: none;
-  color: aliceblue;
+  color: #2b2b2b;
   margin-left: 20px;
 }
 
 .link-items:hover {
+  color: #2b2b2b;
   text-decoration: none;
-  color: rgb(2, 149, 240);
-  margin-left: 20px;
+}
+
+.link-items:hover::after {
+  content: ']';
+}
+.link-items:hover::before {
+  content: '[';
 }
 
 .center-btn {
@@ -35,6 +59,10 @@ thead.thead-dark > tr * {
   margin-right: 2px;
   width: 70px;
 }
+.monitor-btn-red {
+  margin-right: 2px;
+  width: 80px;
+}
 
 .monitor-btn:hover {
   background-color: #343a40;
@@ -51,4 +79,62 @@ thead.thead-dark > tr * {
 .display-metadata {
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+
+.display-keywords h5 {
+  display: inline-block;
+}
+.display-keywords span {
+  margin-right: 3px;
+}
+.badge {
+  padding: 4px 10px 6px 9px;
+  background: #343a40;
+}
+
+.presentation-buttons {
+  display: grid;
+  grid-template-columns: 80px 90px;
+  grid-gap: 1px;
+  justify-content: right;
+  margin-right: 10px;
+}
+.table {
+  border: solid 2px #dee2e6;
+}
+.thead-dark {
+  border: solid 2px #343a40;
+}
+
+.display-container {
+  max-width: 940px;
+  margin: auto;
+}
+
+.display-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000000a8;
+}
+.header-fallback {
+  background: #fdb515;
+}
+.navbar-dark {
+  background: #fdb515 !important;
+  color: #000000a8;
+}
+.navbar-brand {
+  font-family: 'Charm', cursive;
+  font-size: 1.6rem;
+  color: #000000d2 !important;
+}
+.custom-button {
+  background: #fdb515;
+  border-color: #fdb515;
+  color: #2b2b2b;
+}
+.custom-button:hover {
+  background: #fdb515;
+  border-color: #fdb515;
+  color: #2b2b2b;
 }

@@ -45,7 +45,17 @@ class Main extends Component {
           )}
         />
 
-        <Route path="/presentations/edit/:id" component={EditPresentation} />
+        <Route
+          path="/presentations/edit/:id"
+          render={props => (
+            <EditPresentation
+              {...props}
+              presentations={this.props.presentations}
+              editPresentation={this.props.editPresentation}
+              updating={this.props.updating}
+            />
+          )}
+        />
       </Switch>
     );
   }

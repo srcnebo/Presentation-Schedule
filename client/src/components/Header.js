@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => (
-  <header>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <header className="header-fallback">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark container">
       <Link className="navbar-brand" to="/">
-        Schedules
+        Integrify
       </Link>
       <button
         className="navbar-toggler"

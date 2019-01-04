@@ -11,7 +11,7 @@ const {
 presentationRouter.get('/presentations', showPresentations);
 presentationRouter.get('/presentations/:id', showSinglePresentation);
 presentationRouter.post('/presentations', addPresentation);
-presentationRouter.put('/presentations/:id', editPresentation);
+presentationRouter.put('/presentations/edit/:id', editPresentation);
 presentationRouter.delete('/presentations/:id', deletePresentation);
 
 module.exports = presentationRouter;

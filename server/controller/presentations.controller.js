@@ -44,9 +44,17 @@ function addPresentation(req, res) {
 }
 
 function editPresentation(req, res) {
-  const _id = req.params.id;
-  Presentation.findById({ _id }, (err, presentation) => {
-    (presentation.name = req.body.name), (presentation.age = req.body.age);
+  const id = req.params.id;
+  console.log('lets seee', id);
+  Presentation.findOne({ _id: id }, (err, presentation) => {
+    (presentation.presenter = req.body.presenter),
+      (presentation.evaluator = req.body.evaluator),
+      (presentation.topic = req.body.topic),
+      (presentation.date = req.body.date),
+      (presentation.links = req.body.links),
+      (presentation.keywords = req.body.keywords),
+      (presentation.summary = req.body.summary);
+    console.log(presentation);
     presentation.save(err => {
       if (err) {
         res.status(404).send(err);
